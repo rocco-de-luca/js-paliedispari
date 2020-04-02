@@ -28,8 +28,8 @@ var somma = userNumber + computerNumber
 
 //definizione
 function getRoundNumber (min, max) {
-    var res = Math.floor(Math.random() * (max - min + 1)) + min;
-    return res
+    var computerNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    return computerNumber
 }
     if (somma % 2 == 0) {
         console.log(somma + 'pari');
