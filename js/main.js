@@ -32,10 +32,10 @@ function getRoundNumber (min, max) {
     return computerNumber
 }
     if (somma % 2 == 0) {
-        console.log(somma + 'pari');
+        console.log(somma + ' ha vinto pari');
     }
     else {
-        console.log (somma + 'è dispari')
+        console.log (somma + 'ha vinto dispari')
     } 
 
 
