@@ -1,44 +1,87 @@
-//Palidroma
+// esercizio uno (palindroma)
+var inserireParola = prompt("inserisci parola").trim();
+inserireParola = inserireParola.toLowerCase();
 
-var userWord = prompt('insert word');
-var turnedWord = invertWord(userWord) ;
+//invocazione
+var parolaReverse = giraParola(inserireParola);
+console.log("parola originale:", inserireParola);
+console.log("parola reverse:", parolaReverse);
 
-if (userWord == turnedWord) {
-    console.log ("the word is Palindroma");
+
+if (inserireParola == parolaReverse) {
+    console.log("la parola è: palindroma");
 }
 else {
-    console.log("the word is not palindroma")
+    console.log("la parola non è: palindroma");
 }
-function invertWord(word) {
-    var invertedWord = "";
-    for (var i = word.length -1; i >= 0; 1--) {
-        invertedWord += word[i]
+
+
+//definizione: inverti ordine dei caratteri di una stringa
+function giraParola(word) {
+    var res = '';
+    for (var i = word.length - 1; i >= 0; i--) {
+        res += word[i];
     }
-    return invertedWord;
+    return res;
 }
 
 
 //pari e dispari
+// refs
+var pariDispari = prompt('scegli pari o dipari').toLowerCase();
+// validazione
+while(pariDispari !== 'pari' && pariDispari !== 'dispari'){
+    pariDispari = prompt('scegli pari o dipari').toLowerCase();
+}
 
+var userNumber = paerseInt(prompt('scegli un numero da 1 a 5'));
+// validazione
+while( (userNumber < 1 || userNumber > 5) || isNaN(userNumber) ){
+    userNumber = paerseInt(prompt('scegli un numero da 1 a 5'));  
+}
 //invocazione
-var pariDispari = prompt ('scegli pari o dipari');
-var userNumber = paerseInt (prompt('scegli un numero da 1 a 5'));
-var computerNumber = getRandomNumber(1,5);
+var computerNumber = getRandomNumber(1, 5);
+
+
+//debug info
+console.log(pariDispari);
+console.log(userNumber);
+console.log(computerNumber);
+
+// somma dei due numeri
 var somma = userNumber + computerNumber
 
-//definizione
-function getRoundNumber (min, max) {
-    var computerNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-    return computerNumber
+// controllo se la somma dei due numeri è pari o dispari
+var risultatoPariDispari = checkPariDispari(somma)
+console.log(somma, risultatoPariDispari);
+
+// dichiaro chi ha vinto
+if(pariDispari == risultatoPariDispari){
+    console.log('hai vinto');   
 }
-    if (somma % 2 == 0) {
-        console.log(somma + ' ha vinto pari');
-    }
-    else {
-        console.log (somma + 'ha vinto dispari')
-    } 
-
-
-
+else{
+    console.log('vince il computer');
     
+}
+
+//definizione
+function getRandomdNumber(min, max) {
+    var computerNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    return computerNumber;
+}
+
+// controllo se il parametro passato è pari o dispari
+function checkPariDispari(numero) {
+    if (numero % 2 == 0) {
+        return 'pari';
+    }
+        return 'dispari';
+}
+
+
+
+
+
+
+
 
